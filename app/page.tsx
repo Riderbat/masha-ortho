@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use client';
 
 import { useState } from 'react';
@@ -74,23 +75,23 @@ const firstVisitSteps = [
     description: "Согласование плана и запись на установку"
   }
 ];
-
-// const FloatingIcon = ({ icon, delay = 0 }) => (
-//   <motion.div
-//     className="absolute"
-//     animate={{
-//       y: [0, -20, 0],
-//       rotate: [0, 10, -10, 0],
-//     }}
-//     transition={{
-//       duration: 4,
-//       repeat: Infinity,
-//       delay,
-//     }}
-//   >
-//     {icon}
-//   </motion.div>
-// );
+// @ts-ignore
+const FloatingIcon = ({ icon, delay = 0 }) => (
+  <motion.div
+    className="absolute"
+    animate={{
+      y: [0, -20, 0],
+      rotate: [0, 10, -10, 0],
+    }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+      delay,
+    }}
+  >
+    {icon}
+  </motion.div>
+);
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -146,31 +147,76 @@ export default function Home() {
 
       {/* Hero Section with Doctor's Photo */}
       <section id="about" className="h-screen flex flex-col md:flex-row">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="flex-1 flex items-center justify-center animated-bg p-8 relative overflow-hidden"
         >
           <div className="max-w-xl relative z-10">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+            <h1 id='name' className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
               Мария Ткач
             </h1>
             <p className="text-xl md:text-2xl text-pink-600 mb-4">
-              Врач-ортодонт высшей категории
+              Врач-ортодонт
             </p>
             <p className="text-lg text-gray-600 mb-8">
-              Создаю красивые улыбки и здоровые прикусы уже более 10 лет. Индивидуальный подход к каждому пациенту.
+              Создаю красивые улыбки и здоровые прикусы. Индивидуальный подход к каждому пациенту.
             </p>
             <button className="bg-pink-500 text-white px-8 py-3 rounded-full hover:bg-pink-600 transition-colors">
               Хочу консультацию
             </button>
           </div>
-          {/* <div className="absolute inset-0 opacity-10">
-            <FloatingIcon icon={<Tooth className="w-16 h-16 text-pink-500" />} delay={0} />
-            <FloatingIcon icon={<Smile className="w-16 h-16 text-pink-500" />} delay={1} />
-            <FloatingIcon icon={<Heart className="w-16 h-16 text-pink-500" />} delay={2} />
-          </div> */}
+          <div className="absolute inset-0 opacity-4">
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+                translateY: [100, 500],
+                opacity: [0, 0.25, 0.5, 0.75, 1]
+              }}
+              transition={{
+                duration: 9,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute top-1/5 left-1/2"
+            >
+              <Stethoscope className="w-32 h-32 text-pink-500" />
+            </motion.div>
+            <motion.div
+              animate={{
+                scale: [1.2, 1, 1.2],
+                rotate: [360, 180, 0],
+                translateY: [-300, 600],
+                opacity: [0, 0.5, 1]
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute bottom-1/4 right-1/5"
+            >
+              <Tooth className="w-32 h-32 text-pink-500" />
+            </motion.div>
+            <motion.div
+              animate={{
+                scale: [1.2, 1, 1.2],
+                rotate: [360, 180, 0],
+                translateY: [-300, 600],
+                opacity: [0, 0.5, 1]
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute bottom-1/3 right-1/2"
+            >
+              <Heart className="w-32 h-32 text-pink-500" />
+            </motion.div>
+          </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -179,7 +225,7 @@ export default function Home() {
           className="flex-1 relative"
         >
           <img
-            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1000"
+            src="https://i.pinimg.com/736x/dd/8e/53/dd8e53b6e7f0e12a5ffe4e8de3500f51.jpg"
             alt="Доктор Мария Ткач"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -199,9 +245,9 @@ export default function Home() {
               Что такое ортодонтия?
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Ортодонтия — это раздел стоматологии, который занимается исправлением положения зубов и челюстей. 
-              Современные методы лечения позволяют не только создать красивую улыбку, но и улучшить здоровье 
-              всей зубочелюстной системы. Правильный прикус — это не только эстетика, но и здоровье височно-нижнечелюстного 
+              Ортодонтия — это раздел стоматологии, который занимается исправлением положения зубов и челюстей.
+              Современные методы лечения позволяют не только создать красивую улыбку, но и улучшить здоровье
+              всей зубочелюстной системы. Правильный прикус — это не только эстетика, но и здоровье височно-нижнечелюстного
               сустава, профилактика заболеваний пародонта и долговечность зубов.
             </p>
           </motion.div>
